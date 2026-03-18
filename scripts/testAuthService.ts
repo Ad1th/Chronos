@@ -1,7 +1,7 @@
 // scripts/testAuthService.ts
 // Simple test script for Auth Service
 
-import { createUser, login } from "../services/auth/authService";
+import { createUser, login } from "../services/auth/authService.js";
 import { v4 as uuidv4 } from "uuid";
 
 async function test() {
