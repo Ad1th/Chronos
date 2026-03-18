@@ -2,11 +2,11 @@
 // Simple test script for Auth Service
 
 import { createUser, login } from "../services/auth/authService";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "node:crypto";
 
 async function test() {
-  const requestId = uuidv4();
-  const correlationId = uuidv4();
+  const requestId = randomUUID();
+  const correlationId = randomUUID();
 
   console.log("Creating user...");
   const user = await createUser(
@@ -21,7 +21,7 @@ async function test() {
   const loginResult1 = await login(
     "alice@example.com",
     "password123",
-    uuidv4(),
+    randomUUID(),
     correlationId,
   );
   console.log("Login result:", loginResult1);
@@ -30,7 +30,7 @@ async function test() {
   const loginResult2 = await login(
     "alice@example.com",
     "wrongpass",
-    uuidv4(),
+    randomUUID(),
     correlationId,
   );
   console.log("Login result:", loginResult2);

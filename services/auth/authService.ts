@@ -2,7 +2,7 @@
 // Auth Service for Chronos: emits USER_CREATED and LOGIN events
 
 import { logEvent } from "../../core/event-logger/eventLogger";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "node:crypto";
 
 export interface User {
   id: string;
@@ -21,7 +21,7 @@ export async function createUser(
   correlationId: string,
 ) {
   const user: User = {
-    id: uuidv4(),
+    id: randomUUID(),
     email,
     passwordHash: `hashed:${password}`,
     createdAt: new Date().toISOString(),
