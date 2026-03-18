@@ -1,7 +1,7 @@
 // services/auth/authService.ts
 // Auth Service for Chronos: emits USER_CREATED and LOGIN events
 
-import { logEvent } from "../../core/event-logger/eventLogger.js";
+import { logEvent } from "../../core/event-logger/eventLogger";
 import { v4 as uuidv4 } from "uuid";
 
 export interface User {
